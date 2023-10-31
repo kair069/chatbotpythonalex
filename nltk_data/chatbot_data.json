@@ -1,0 +1,28 @@
+{
+    "pairs": [
+        {
+            "pattern": "mi nombre es (.*)",
+            "responses": ["Hola %1, ¿en qué puedo ayudarte hoy?"]
+        },
+        {
+            "pattern": "¿cómo estás?",
+            "responses": ["Estoy bien, gracias. ¿Y tú?"]
+        },
+        {
+            "pattern": "¿quien eres?",
+            "responses": ["Soy un bot de chat y mi nombre es Bot. ¿Cómo puedo ayudarte?"]
+        },
+        {
+            "pattern": "adiós",
+            "responses": ["¡Adiós! Espero haberte ayudado."]
+        },
+        {
+            "pattern": "(.*) (cumpleaños|cumple)",
+            "responses": ["Feliz cumpleaños. ¡Que tengas un gran día!"]
+        },
+        {
+            "pattern": "¿(.*) consejo",
+            "responses": ["No te preocupes por las cosas que no puedes controlar.", "Mantén la calma y sigue adelante."]
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hola soy Juancito xD</title>
+    <style>
+        /* Estilos CSS para el chatbot */
+        body {
+            background-color: #f0f0f0; /* Color de fondo del cuerpo */
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #3498db; /* Color del título del chatbot */
+            text-align: center;
+        }
+        #chat-container {
+            background-color: #ffffff; /* Color de fondo del contenedor de chat */
+            border: 1px solid #ccc; /* Borde del contenedor de chat */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+            width: 300px;
+            margin: 20px auto; /* Centrar el contenedor en la página */
+        }
+        #chat-box {
+            padding: 10px;
+            max-height: 250px;
+            overflow-y: auto; /* Agregar barra de desplazamiento vertical si es necesario */
+        }
+        #user-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #user-input:focus {
+            outline: none;
+        }
+        #user-input::placeholder {
+            color: #ccc;
+        }
+        #user-input:focus::placeholder {
+            color: #999;
+        }
+        #user-input + p {
+            margin: 10px 0;
+        }
+        #user-input + p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Escribe un mensaje...">
+    </div>
+    <script>
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+
+        userInput.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                const userMessage = userInput.value;
+                chatBox.innerHTML += `<p><strong>Tú:</strong> ${userMessage}</p>`;
+                userInput.value = "";
+
+                fetch(`/get?msg=${userMessage}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        chatBox.innerHTML += `<p><strong>Chatbot:</strong> ${data.response}</p>`;
+                    });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Escribe un mensaje...">
+    </div>
+    <script>
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+
+        userInput.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                const userMessage = userInput.value;
+                chatBox.innerHTML += `<p><strong>Tú:</strong> ${userMessage}</p>`;
+                userInput.value = "";
+
+                fetch(`/get?msg=${userMessage}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        chatBox.innerHTML += `<p><strong>Chatbot:</strong> ${data.response}</p>`;
+                    });
+            }
+        });
+    </script>
+</body>
+</html> 
+
+
+
+-->
